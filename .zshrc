@@ -2,31 +2,79 @@ export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH="${HOME}/.antigen/bundles/robbyrussell/oh-my-zsh"
+# -----[zplug]-----<start>
+# Check if zplug is installed
+if [[ ! -d ~/.zplug ]]; then
+  git clone https://github.com/zplug/zplug ~/.zplug
+  source ~/.zplug/init.zsh && zplug update --self
+fi
 
-# To install this theme for use in antigen, just add this at the beginning of your ~/.zshrc
-POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
+# Essential
+source ~/.zplug/init.zsh
 
-# Use antigen
-source $HOME/antigen.zsh
+# Make sure to use double quotes to prevent shell expansion
+# Add a bunch more of your favorite packages!
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+# Supports oh-my-zsh plugins and the like
+zplug "plugins/dirhistory", from: oh-my-zsh
+zplug "plugins/git", from: oh-my-zsh
+zplug "plugins/last-working-dir", from: oh-my-zsh
+zplug "plugins/colored-man-pages", from: oh-my-zsh
 
-# ***[Bundles]***
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle dirhistory 
-antigen bundle git
-antigen bundle last-working-dir
-
-# (plugins not part of Oh-My-Zsh can be installed using githubusername/repo)
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-syntax-highlighting
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "changyuheng/fz", defer:1
+zplug "rupa/z", use:z.sh
 
 # Load the theme.
-antigen theme bhilburn/powerlevel9k powerlevel9k
+#antigen theme bhilburn/powerlevel9k powerlevel9k
+
+# Install packages that have not been installed yet
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    else
+        echo
+    fi
+fi
+
+zplug load
+# -----[zplug]-----<end>
+
+
+# -----[antigen]-----<start>
+## Path to your oh-my-zsh installation.
+#export ZSH="${HOME}/.antigen/bundles/robbyrussell/oh-my-zsh"
+#
+## To install this theme for use in antigen, just add this at the beginning of your ~/.zshrc
+#POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
+#
+## Use antigen
+#source $HOME/antigen.zsh
+#
+## Load the oh-my-zsh's library.
+#antigen use oh-my-zsh
+#
+## ***[Bundles]***
+## Bundles from the default repo (robbyrussell's oh-my-zsh).
+#antigen bundle dirhistory 
+#antigen bundle git
+#antigen bundle last-working-dir
+#antigen bundle colored-man-pages
+#
+## (plugins not part of Oh-My-Zsh can be installed using githubusername/repo)
+#antigen bundle zsh-users/zsh-autosuggestions
+#antigen bundle zsh-users/zsh-completions
+#antigen bundle zsh-users/zsh-syntax-highlighting
+#antigen bundle rupa/z
+#antigen bundle changyheng/fz
+#
+## Load the theme.
+#antigen theme bhilburn/powerlevel9k powerlevel9k
+
+# -----[antigen]-----<end>
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -181,7 +229,7 @@ POWERLEVEL9K_LOAD_NORMAL_VISUAL_IDENTIFIER_COLOR="green"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=7
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -220,12 +268,14 @@ HIST_STAMPS="yyyy/mm/dd"
 #  dirhistory git last-working-dir zsh-autosuggestions zsh-syntax-highlighting 
 #)
 
-# User configuration
+# ***User configuration***
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# set to UTF-8 or tmux's powerline font will look ugly
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -250,7 +300,7 @@ HIST_STAMPS="yyyy/mm/dd"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # ---fzf---
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # ---autojump---
 # [[ -s ${HOME}/.autojump/etc/profile.d/autojump.sh ]] && source ${HOME}/.autojump/etc/profile.d/autojump.sh
@@ -265,7 +315,26 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-source $ZSH/oh-my-zsh.sh
+
+# -----[zplug]-----<start>
+# Load the theme.
+# Note that you should define any customizations at the top of your .zshrc (i.e. setting the POWERLEVEL9K_* variables) in your .zshrc.
+zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+
+# Install packages that have not been installed yet
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    else
+        echo
+    fi
+fi
+
+zplug load
+# -----[zplug]-----<end>
+
+#source $ZSH/oh-my-zsh.sh
 
 # Tell Antigen that you're done.
-antigen apply
+#antigen apply
