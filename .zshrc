@@ -16,16 +16,16 @@ source ~/.zplug/init.zsh
 # Add a bunch more of your favorite packages!
 
 # Supports oh-my-zsh plugins and the like
-zplug "plugins/dirhistory", from: oh-my-zsh
-zplug "plugins/git", from: oh-my-zsh
-zplug "plugins/last-working-dir", from: oh-my-zsh
-zplug "plugins/colored-man-pages", from: oh-my-zsh
+zplug "plugins/dirhistory", from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/last-working-dir", from:oh-my-zsh
+zplug "plugins/colored-man-pages", from:oh-my-zsh
 
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "changyuheng/fz", defer:1
-zplug "rupa/z", use:z.sh
+zplug "zsh-users/zsh-autosuggestions", from:github
+zplug "zsh-users/zsh-completions", from:github
+zplug "zsh-users/zsh-syntax-highlighting", from:github
+zplug "changyuheng/fz", defer:1, from:github
+zplug "rupa/z", use:z.sh, from:github
 
 # Load the theme.
 #antigen theme bhilburn/powerlevel9k powerlevel9k
@@ -254,7 +254,11 @@ export UPDATE_ZSH_DAYS=7
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
 HIST_STAMPS="yyyy/mm/dd"
+setopt SHARE_HISTORY
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
