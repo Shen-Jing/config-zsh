@@ -16,14 +16,16 @@ source ~/.zplug/init.zsh
 # Add a bunch more of your favorite packages!
 
 # Supports oh-my-zsh plugins and the like
+zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug "plugins/dirhistory", from:oh-my-zsh
+zplug "plugins/docker", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/last-working-dir", from:oh-my-zsh
-zplug "plugins/colored-man-pages", from:oh-my-zsh
 
 zplug "zsh-users/zsh-autosuggestions", from:github
 zplug "zsh-users/zsh-completions", from:github
 zplug "zsh-users/zsh-syntax-highlighting", from:github
+zplug "zsh-users/zsh-history-substring-search", defer:1, from:github
 zplug "changyuheng/fz", defer:1, from:github
 zplug "rupa/z", use:z.sh, from:github
 
@@ -302,6 +304,10 @@ export LC_CTYPE=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# ---bindkey---
+bindkey '^R' history-substring-search-up
+bindkey '^S' history-substring-search-down
 
 # ---fzf---
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
