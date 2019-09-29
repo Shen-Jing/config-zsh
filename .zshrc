@@ -308,6 +308,8 @@ export LC_CTYPE=en_US.UTF-8
 # ---bindkey---
 bindkey '^R' history-substring-search-up
 bindkey '^S' history-substring-search-down
+# enable Ctrl-s (disable XON/XOFF)
+[[ $- == *i* ]] && stty -ixon
 
 # ---fzf---
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
