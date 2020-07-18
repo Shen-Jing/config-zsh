@@ -311,6 +311,19 @@ bindkey '^S' history-substring-search-down
 # enable Ctrl-s (disable XON/XOFF)
 [[ $- == *i* ]] && stty -ixon
 
+export PATH=/usr/local/bin:$PATH
+MINIMAP2_PATH=/home/kevin/ReadCorrection/minimap2:/home/kevin/ReadCorrection/minimap2/misc
+PBSIM_PATH=/home/kevin/ReadCorrection/pbsim-1.0.3-Linux-amd64/Linux-amd64/bin
+CANU_PATH=/home/kevin/ReadCorrection/Canu/canu-1.9/Linux-amd64/bin
+BCFTOOLS_PATH=/home/kevin/ReadCorrection/bcftools
+JBROWSE_PATH=/var/www/html/JBrowse/bin
+CONDA_PATH=/home/shenjing/anaconda3/bin
+MECAT2_PATH=/home/kevin/ReadCorrection/MECAT2/Linux-amd64/bin
+HERCULES_PATH=/home/kevin/ReadCorrection/hercules/bin
+MINICONDA_PATH=/home/shenjing/miniconda3/bin
+ART_ILLU_PATH=/home/kevin/ReadCorrection/art_bin_MountRainier
+export PATH="$PATH:/usr/local/bin:$MINIMAP2_PATH:$PBSIM_PATH:$CANU_PATH:$BCFTOOLS_PATH:$JBROWSE_PATH:$CONDA_PATH:$MECAT2_PATH:$HERCULES_PATH:$MINICONDA_PATH:$ART_ILLU_PATH"
+
 # ---fzf---
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -321,6 +334,10 @@ bindkey '^S' history-substring-search-down
 # For Golang env
 export GOPATH=$HOME/gopath
 export PATH=$GOPATH:$GOPATH/bin:$PATH
+
+# ---C/C++---
+# CppBoost library
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
 # ---nvm---
 export NVM_DIR="$HOME/.nvm"
@@ -346,7 +363,17 @@ fi
 zplug load
 # -----[zplug]-----<end>
 
-#source $ZSH/oh-my-zsh.sh
-
-# Tell Antigen that you're done.
-#antigen apply
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/shenjing/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/shenjing/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/shenjing/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/shenjing/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
