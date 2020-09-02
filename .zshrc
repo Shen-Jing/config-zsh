@@ -306,8 +306,8 @@ export LC_CTYPE=en_US.UTF-8
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # ---bindkey---
-bindkey '^R' history-substring-search-up
-bindkey '^S' history-substring-search-down
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey '^S' history-incremental-pattern-search-forward
 # enable Ctrl-s (disable XON/XOFF)
 [[ $- == *i* ]] && stty -ixon
 
