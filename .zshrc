@@ -312,16 +312,16 @@ bindkey '^S' history-incremental-pattern-search-forward
 [[ $- == *i* ]] && stty -ixon
 
 export PATH=/usr/local/bin:$PATH
-MINIMAP2_PATH=/home/kevin/ReadCorrection/minimap2:/home/kevin/ReadCorrection/minimap2/misc
-PBSIM_PATH=/home/kevin/ReadCorrection/pbsim-1.0.3-Linux-amd64/Linux-amd64/bin
-CANU_PATH=/home/kevin/ReadCorrection/Canu/canu-1.9/Linux-amd64/bin
-BCFTOOLS_PATH=/home/kevin/ReadCorrection/bcftools
+MINIMAP2_PATH=${HOME}/ReadCorrection/minimap2:${HOME}/ReadCorrection/minimap2/misc
+PBSIM_PATH=${HOME}/ReadCorrection/pbsim-1.0.3-Linux-amd64/Linux-amd64/bin
+CANU_PATH=${HOME}/ReadCorrection/Canu/canu-1.9/Linux-amd64/bin
+BCFTOOLS_PATH=${HOME}/ReadCorrection/bcftools
 JBROWSE_PATH=/var/www/html/JBrowse/bin
 CONDA_PATH=/home/shenjing/anaconda3/bin
-MECAT2_PATH=/home/kevin/ReadCorrection/MECAT2/Linux-amd64/bin
-HERCULES_PATH=/home/kevin/ReadCorrection/hercules/bin
+MECAT2_PATH=${HOME}/ReadCorrection/MECAT2/Linux-amd64/bin
+HERCULES_PATH=${HOME}/ReadCorrection/hercules/bin
 MINICONDA_PATH=/home/shenjing/miniconda3/bin
-ART_ILLU_PATH=/home/kevin/ReadCorrection/art_bin_MountRainier
+ART_ILLU_PATH=${HOME}/ReadCorrection/art_bin_MountRainier
 export PATH="$PATH:/usr/local/bin:$MINIMAP2_PATH:$PBSIM_PATH:$CANU_PATH:$BCFTOOLS_PATH:$JBROWSE_PATH:$CONDA_PATH:$MECAT2_PATH:$HERCULES_PATH:$MINICONDA_PATH:$ART_ILLU_PATH"
 
 # ---fzf---
