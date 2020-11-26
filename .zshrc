@@ -304,6 +304,8 @@ export LC_CTYPE=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ll='ls -l --color=auto'
+alias ls='ls --color=auto'
 
 # ---bindkey---
 bindkey '^R' history-incremental-pattern-search-backward
