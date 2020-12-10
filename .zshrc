@@ -307,6 +307,11 @@ export LC_CTYPE=en_US.UTF-8
 alias ll='ls -l --color=auto'
 alias ls='ls --color=auto'
 
+if command -v g++-10 &> /dev/null
+then
+    alias g++='g++-10'
+fi
+
 # ---bindkey---
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
