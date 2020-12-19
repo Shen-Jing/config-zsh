@@ -339,7 +339,7 @@ export PATH="$PATH:/usr/local/bin:$MINIMAP2_PATH:$PBSIM_PATH:$CANU_PATH:$BCFTOOL
 # autoload -U compinit && compinit -u
 
 # For Golang env
-export GOPATH=$HOME/gopath
+export GOPATH=$HOME/golang
 export PATH=$GOPATH:$GOPATH/bin:$PATH
 
 # ---C/C++---
