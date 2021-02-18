@@ -312,10 +312,11 @@ bindkey '^S' history-incremental-pattern-search-forward
 [[ $- == *i* ]] && stty -ixon
 
 export PATH=/usr/local/bin:$PATH
-MINIMAP2_PATH=${HOME}/ReadCorrection/minimap2:${HOME}/ReadCorrection/minimap2/misc
-PBSIM_PATH=${HOME}/ReadCorrection/pbsim-1.0.3-Linux-amd64/Linux-amd64/bin
-CANU_PATH=${HOME}/ReadCorrection/Canu/canu-1.9/Linux-amd64/bin
-BCFTOOLS_PATH=${HOME}/ReadCorrection/bcftools
+MINIMAP2_PATH=${HOME}/tools/minimap2:${HOME}/tools/minimap2/misc
+PBSIM_PATH=${HOME}/tools/pbsim-1.0.3-Linux-amd64/Linux-amd64/bin
+CANU1.9_PATH=${HOME}/ReadCorrection/Canu/canu-1.9/Linux-amd64/bin
+CANU2.0_PATH=${HOME}/ReadCorrection/Canu/canu-2.0/Linux-amd64/bin
+BCFTOOLS_PATH=${HOME}/tools/bcftools
 JBROWSE_PATH=/var/www/html/JBrowse/bin
 CONDA_PATH=/home/shenjing/anaconda3/bin
 MECAT2_PATH=${HOME}/ReadCorrection/MECAT2/Linux-amd64/bin
