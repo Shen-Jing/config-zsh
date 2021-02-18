@@ -304,6 +304,13 @@ export LC_CTYPE=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ll='ls -l --color=auto'
+alias ls='ls --color=auto'
+
+if command -v g++-10 &> /dev/null
+then
+    alias g++='g++-10'
+fi
 
 # ---bindkey---
 bindkey '^R' history-incremental-pattern-search-backward
@@ -333,7 +340,7 @@ export PATH="$PATH:/usr/local/bin:$MINIMAP2_PATH:$PBSIM_PATH:$CANU_PATH:$BCFTOOL
 # autoload -U compinit && compinit -u
 
 # For Golang env
-export GOPATH=$HOME/gopath
+export GOPATH=$HOME/golang
 export PATH=$GOPATH:$GOPATH/bin:$PATH
 
 # ---C/C++---
