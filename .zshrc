@@ -319,18 +319,22 @@ bindkey '^S' history-incremental-pattern-search-forward
 [[ $- == *i* ]] && stty -ixon
 
 export PATH=/usr/local/bin:$PATH
-SRATOOL=${HOME}/tools/sratoolkit.2.10.9-ubuntu64/bin
-MINIMAP2_PATH=${HOME}/tools/minimap2:${HOME}/tools/minimap2/misc
-PBSIM_PATH=${HOME}/tools/pbsim-1.0.3-Linux-amd64/Linux-amd64/bin
-CANU1dot9_PATH=${HOME}/ReadCorrection/Canu/canu-1.9/Linux-amd64/bin
-CANU2dot0_PATH=${HOME}/ReadCorrection/Canu/canu-2.0/Linux-amd64/bin
-BCFTOOLS_PATH=${HOME}/tools/bcftools
+if [ -d /home/kevin ]; then
+    CUST_HOME="/home/kevin"
+else
+    CUST_HOME="/home/shenjing"
+SRATOOL=${CUST_HOME}/tools/sratoolkit.2.10.9-ubuntu64/bin
+MINIMAP2_PATH=${CUST_HOME}/tools/minimap2:${CUST_HOME}/tools/minimap2/misc
+PBSIM_PATH=${CUST_HOME}/tools/pbsim-1.0.3-Linux-amd64/Linux-amd64/bin
+CANU1dot9_PATH=${CUST_HOME}/ReadCorrection/Canu/canu-1.9/Linux-amd64/bin
+CANU2dot0_PATH=${CUST_HOME}/ReadCorrection/Canu/canu-2.0/Linux-amd64/bin
+BCFTOOLS_PATH=${CUST_HOME}/tools/bcftools
 JBROWSE_PATH=/var/www/html/JBrowse/bin
-CONDA_PATH=${HOME}/anaconda3/bin
-MECAT2_PATH=${HOME}/ReadCorrection/MECAT2/Linux-amd64/bin
-HERCULES_PATH=${HOME}/ReadCorrection/hercules/bin
+CONDA_PATH=${CUST_HOME}/anaconda3/bin
+MECAT2_PATH=${CUST_HOME}/ReadCorrection/MECAT2/Linux-amd64/bin
+HERCULES_PATH=${CUST_HOME}/ReadCorrection/hercules/bin
 MINICONDA_PATH=/home/shenjing/miniconda3/bin
-ART_ILLU_PATH=${HOME}/ReadCorrection/art_bin_MountRainier
+ART_ILLU_PATH=${CUST_HOME}/ReadCorrection/art_bin_MountRainier
 export PATH="$PATH:/usr/local/bin:$SRATOOL:$MINIMAP2_PATH:$PBSIM_PATH:${CANU1dot9_PATH}:${CANU2dot0_PATH}:$BCFTOOLS_PATH:$JBROWSE_PATH:$CONDA_PATH:$MECAT2_PATH:$HERCULES_PATH:$MINICONDA_PATH:$ART_ILLU_PATH"
 
 # ---fzf---
