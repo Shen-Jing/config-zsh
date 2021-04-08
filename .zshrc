@@ -323,6 +323,7 @@ if [ -d /home/kevin ]; then
     CUST_HOME="/home/kevin"
 else
     CUST_HOME="/home/shenjing"
+fi
 SRATOOL=${CUST_HOME}/tools/sratoolkit.2.10.9-ubuntu64/bin
 MINIMAP2_PATH=${CUST_HOME}/tools/minimap2:${CUST_HOME}/tools/minimap2/misc
 PBSIM_PATH=${CUST_HOME}/tools/pbsim-1.0.3-Linux-amd64/Linux-amd64/bin
