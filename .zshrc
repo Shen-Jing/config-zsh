@@ -6,7 +6,7 @@ export TERM="xterm-256color"
 # Check if zplug is installed
 if [[ ! -d ~/.zplug ]]; then
   git clone https://github.com/zplug/zplug ~/.zplug
-  source ~/.zplug/init.zsh && zplug update --self
+  source ~/.zplug/init.zsh && zplug 'zplug/zplug', hook-build:'zplug --self-manage' && zplug update
 fi
 
 # Essential
@@ -42,7 +42,7 @@ if ! zplug check --verbose; then
     fi
 fi
 
-zplug load
+zplug load --verbose
 # -----[zplug]-----<end>
 
 
@@ -307,9 +307,9 @@ export LC_CTYPE=en_US.UTF-8
 alias ll='ls -l --color=auto'
 alias ls='ls --color=auto'
 
-if command -v g++-10 &> /dev/null
+if command -v g++-14 &> /dev/null
 then
-    alias g++='g++-10'
+    alias g++='g++-14'
 fi
 
 # ---bindkey---
@@ -324,19 +324,10 @@ if [ -d /home/kevin ]; then
 else
     CUST_HOME="/home/shenjing"
 fi
-SRATOOL=${CUST_HOME}/tools/sratoolkit.2.10.9-ubuntu64/bin
-MINIMAP2_PATH=${CUST_HOME}/tools/minimap2:${CUST_HOME}/tools/minimap2/misc
-PBSIM_PATH=${CUST_HOME}/tools/pbsim-1.0.3-Linux-amd64/Linux-amd64/bin
-CANU1dot9_PATH=${CUST_HOME}/ReadCorrection/Canu/canu-1.9/Linux-amd64/bin
-CANU2dot0_PATH=${CUST_HOME}/ReadCorrection/Canu/canu-2.0/Linux-amd64/bin
-BCFTOOLS_PATH=${CUST_HOME}/tools/bcftools
-JBROWSE_PATH=/var/www/html/JBrowse/bin
+
 CONDA_PATH=${CUST_HOME}/anaconda3/bin
-MECAT2_PATH=${CUST_HOME}/ReadCorrection/MECAT2/Linux-amd64/bin
-HERCULES_PATH=${CUST_HOME}/ReadCorrection/hercules/bin
 MINICONDA_PATH=/home/shenjing/miniconda3/bin
-ART_ILLU_PATH=${CUST_HOME}/ReadCorrection/art_bin_MountRainier
-export PATH="$PATH:/usr/local/bin:$SRATOOL:$MINIMAP2_PATH:$PBSIM_PATH:${CANU1dot9_PATH}:${CANU2dot0_PATH}:$BCFTOOLS_PATH:$JBROWSE_PATH:$CONDA_PATH:$MECAT2_PATH:$HERCULES_PATH:$MINICONDA_PATH:$ART_ILLU_PATH"
+export PATH="$PATH:/usr/local/bin:$SRATOOL:$CONDA_PATH:$MINICONDA_PATH"
 
 # ---fzf---
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -391,3 +382,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Google drive
+sudo mount -t drvfs G: /mnt/g
